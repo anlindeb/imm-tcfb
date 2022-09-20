@@ -1,7 +1,7 @@
 terraform {
 
   backend "remote" {
-    organization = "Cisco-Richfield-Lab"
+    organization = "TestIMM"
 
     workspaces {
       name = "imm-tfcb"
