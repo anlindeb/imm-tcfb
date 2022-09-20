@@ -49,9 +49,7 @@ module "intersight_policy_bundle" {
     "vlan-7-Infra" : 7,
     
   }
-  native_vlans_6454 = {
-    "vlan-10-Mgmt" : 10,
-  }
+  
 
   fc_port_count_6454 = 4
 
@@ -69,7 +67,6 @@ module "intersight_policy_bundle" {
   wwnn-block   = "20:00:00:CA:FE:00:00:01"
   wwpn-a-block = "20:00:00:CA:FE:0A:00:01"
   wwpn-b-block = "20:00:00:CA:FE:0B:00:01"
-  uuid-block   = "0000-000000000001"
   mac-block    = "00:CA:FE:00:00:01"
 
     tags = [
