@@ -41,34 +41,39 @@ module "intersight_policy_bundle" {
   description   = "Built by Terraform"
 
   # Fabric Interconnect 6454 config specifics
-  server_ports_6454 = [17, 18, 19, 20]
-  port_channel_6454 = [49, 50]
+  server_ports_6454 = [17, 18, 19, 20, 21 ,22]
+  port_channel_6454 = [48, 49]
   uplink_vlans_6454 = {
-    "vlan-998" : 998,
-    "vlan-999" : 999
+    "vlan-5-Server" : 5,
+    "vlan-6-Client" : 6,
+    "vlan-7-Infra" : 7,
+    
+  }
+  native_vlans_6454 = {
+    "vlan-10-Mgmt" : 10,
   }
 
   fc_port_count_6454 = 4
 
-  imc_access_vlan    = 999
+  imc_access_vlan    = 10
   imc_admin_password = "Cisco123"
 
-  ntp_servers = ["ca.pool.ntp.org"]
+  ntp_servers = ["198.18.128.1"]
 
-  dns_preferred = "172.22.16.254"
-  dns_alternate = "172.22.16.253"
+  dns_preferred = "198.18.133.1"
+  dns_alternate = "198.18.133.2"
 
-  ntp_timezone = "America/Winnipeg"
+  ntp_timezone = "America/New_York"
 
 # starting values for wwnn, wwpn-a/b and mac pools (size 255)
   wwnn-block   = "20:00:00:CA:FE:00:00:01"
   wwpn-a-block = "20:00:00:CA:FE:0A:00:01"
   wwpn-b-block = "20:00:00:CA:FE:0B:00:01"
-
+  uuid-block   = "0000-000000000001"
   mac-block    = "00:CA:FE:00:00:01"
 
     tags = [
-    { "key" : "Environment", "value" : "BDC-Prod" },
+    { "key" : "Environment", "value" : "LAB-PROD" },
     { "key" : "Orchestrator", "value" : "Terraform" }
   ]
 }
